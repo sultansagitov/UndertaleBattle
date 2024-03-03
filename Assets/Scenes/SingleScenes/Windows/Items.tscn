@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://clfrl1ganruem"]
+
+[ext_resource type="TileSet" path="res://Assets/Resources/TileSets/WindowBorder.tres" id="2"]
+[ext_resource type="Script" path="res://Assets/Scenes/Scripts/List.cs" id="3"]
+[ext_resource type="Material" uid="uid://bujqgrqtlt1cr" path="res://Assets/Resources/ShaderMaterial/CutColor.tres" id="4"]
+[ext_resource type="FontFile" path="res://Assets/Resources/BitmapFonts/8bitOperatorPlus-Bold.res" id="5"]
+
+[node name="Items" type="Node2D"]
+material = ExtResource("4")
+
+[node name="WindowBorders" type="TileMap" parent="."]
+use_parent_material = true
+tile_set = ExtResource("2")
+format = 2
+
+[node name="ItemList" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(16, 64)
+script = ExtResource("3")
+Cols = 3
+Rows = 14
+Gap = Vector2(200, 16)
+Data = PackedStringArray("mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "Something", "Something", "Something", "Something", "Something", "Something", "Something", "Something", "Something", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "Something", "Something", "Something", "Something", "Something", "Something", "Something", "Something", "Something", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm", "Something", "Something", "Something", "Something", "Something", "mmmmmmmmmmmmmmmmmm", "mmmmmmmmmmmmmmmmmm")
+
+[node name="ItemInteractions" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(16, 304)
+script = ExtResource("3")
+Cols = 3
+Rows = 1
+Gap = Vector2(80, 0)
+Data = PackedStringArray("Use", "Remove", "Information")
+
+[node name="Count" type="Label" parent="."]
+offset_left = 557.0
+offset_top = 303.0
+offset_right = 606.0
+offset_bottom = 317.0
+theme_override_fonts/font = ExtResource("5")
+text = "26 / 42"

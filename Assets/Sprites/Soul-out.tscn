@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Resources/ShaderMaterial/CutColor.tres" type="Material" id=1]
+
+[sub_resource type="CompressedTexture2D" id=1]
+load_path = "res://.import/soul-out.png-fe9fdaefacc875063c6cb47a97ad92a8.stex"
+
+[node name="Soul-out" type="Sprite2D"]
+modulate = Color( 1, 0, 0, 1 )
+material = ExtResource( 1 )
+z_index = 1
+texture = SubResource( 1 )
+centered = false

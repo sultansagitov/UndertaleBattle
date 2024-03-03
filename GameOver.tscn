@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfe3vfib80hb2"]
+
+[ext_resource type="Texture2D" uid="uid://b4m4jxhlusray" path="res://gameover.png" id="1"]
+[ext_resource type="Script" path="res://GameOver.cs" id="1_vtb0s"]
+[ext_resource type="PackedScene" path="res://MyCamera2D.tscn" id="2"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+const vec2 res = vec2(320, 180);
+
+void fragment() {
+	vec2 uv = UV;
+	
+	vec3 col;
+	col.r = texture(TEXTURE, 0.5 + (uv - 0.5) * (1.0 + sin(TIME) * 0.08)).r;
+	col.g = texture(TEXTURE, uv).r;
+	col.b = texture(TEXTURE, 0.5 + (uv - 0.5) * (1.0 + cos(TIME) * 0.08)).r;
+	
+	COLOR = vec4(col, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = SubResource("1")
+
+[node name="GameOver" type="ColorRect"]
+pivot_offset = Vector2(-516, -140)
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_vtb0s")
+
+[node name="Gameover" type="Sprite2D" parent="."]
+material = SubResource("2")
+position = Vector2(640, 360)
+scale = Vector2(4, 4)
+texture = ExtResource("1")
+
+[node name="Camera2D" parent="." instance=ExtResource("2")]
+position = Vector2(640, 360)

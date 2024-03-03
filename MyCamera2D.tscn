@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbt00eb4e0mmo"]
+
+[ext_resource type="Script" path="res://MyCamera2D.cs" id="1_ekbun"]
+[ext_resource type="FontFile" path="res://Assets/Resources/BitmapFonts/8bitOperatorPlus-Bold.res" id="2_4wrc8"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	
+	col.a = col.r;
+	
+	COLOR = col; 
+}"
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = SubResource("1")
+
+[node name="MyCamera2D" type="Camera2D"]
+script = ExtResource("1_ekbun")
+
+[node name="quitting" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("2")
+offset_left = -300.0
+offset_top = 148.0
+offset_right = -224.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("2_4wrc8")
+text = "Quit Game"
