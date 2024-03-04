@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class SoulPlayer : CharacterBody2D
 {
@@ -10,17 +10,44 @@ public partial class SoulPlayer : CharacterBody2D
     public float speed = 100;
     public double t;
 
-    public int TP = 100;
-    public int HP = 100;
-    public int MaxHP = 100;
+    private int tp = 100;
+    public int TP
+    {
+        get { return tp; }
+        set
+        {
+            tp = value;
+            main.tp_bar.Size = new(value, main.tp_bar.Size.Y);
+            main.tp_score.Text = $"{tp}";
+        }
+    }
+    private int hp = 100;
+    public int HP
+    {
+        get { return hp; }
+        set
+        {
+            hp = value;
+            main.hp_bar.Size = new(value, main.hp_bar.Size.Y);
+            main.hp_score.Text = $"{hp} / {maxhp}";
+        }
+    }
+    private int maxhp = 100;
+    public int MaxHP
+    {
+        get { return maxhp; }
+        set
+        {
+            maxhp = value;
+            main.hp_bg.Size = new(value, main.hp_bg.Size.Y);
+            main.hp_score.Text = $"{hp} / {maxhp}";
+        }
+    }
 
     private bool _immortally = false;
     public bool Immortally
     {
-        get
-        {
-            return _immortally;
-        }
+        get { return _immortally; }
         set
         {
             _immortally = value;
@@ -69,8 +96,8 @@ public partial class SoulPlayer : CharacterBody2D
         TP = Math.Min(TP, 100);
         MaxHP = Math.Min(MaxHP, 100);
         HP = Math.Min(HP, MaxHP);
-        
-        Vector2 v = new (velocity.X, velocity.Y);
+
+        Vector2 v = new(velocity.X, velocity.Y);
         velocity.X = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
         velocity.Y = Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up");
 
