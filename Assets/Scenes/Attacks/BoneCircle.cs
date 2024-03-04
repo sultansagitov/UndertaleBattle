@@ -21,7 +21,7 @@ public partial class BoneCircle : Node2D
 	{
 		for (int i = 0; i < n; i++)
 		{
-			var bone = GD.Load<PackedScene>("res://Assets/Scenes/Attacks/OneBone.tscn").Instantiate<OneBone>();
+			var bone = GD.Load<PackedScene>("res://Assets/Scenes/Attacks/Bone.tscn").Instantiate<Bone>();
 			bone.BoneLength = BoneLength;
 			bone.Name = "Bone_" + i.ToString();
 			bone.ColInd = i % 8;

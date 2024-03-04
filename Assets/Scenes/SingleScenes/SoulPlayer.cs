@@ -12,7 +12,7 @@ public partial class SoulPlayer : CharacterBody2D
     public float Speed = 100;
     public float MAX_SPEED = 200;
 
-    private int _tp = 100;
+    private int _tp = 0;
     public int TP
     {
         get { return _tp; }
@@ -79,7 +79,7 @@ public partial class SoulPlayer : CharacterBody2D
         }
     }
 
-    public void Attack(int damage, OneBone bone)
+    public void Attack(int damage, Attack bone)
     {
         if (!Immortally)
         {
@@ -110,7 +110,7 @@ public partial class SoulPlayer : CharacterBody2D
         }
     }
 
-    public void Heal(int health, OneBone bone)
+    public void Heal(int health, Attack bone)
     {
         if (HP < MaxHP)
         {
