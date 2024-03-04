@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://ulpfpjmdfrv3"]
+
+[ext_resource type="Texture2D" uid="uid://clh75jmbywsb1" path="res://Assets/Sprites/soul-in.png" id="1"]
+[ext_resource type="Material" uid="uid://bujqgrqtlt1cr" path="res://Assets/Resources/Shaders/CutColor.tres" id="3"]
+[ext_resource type="Script" path="res://Assets/Scenes/SingleScenes/Windows/Pause.cs" id="7"]
+[ext_resource type="Script" path="res://Assets/Scenes/Scripts/List.cs" id="9"]
+
+[node name="Pause" type="Node2D"]
+material = ExtResource("3")
+script = ExtResource("7")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+
+[node name="version" type="Label" parent="."]
+offset_left = 557.0
+offset_top = 1.0
+offset_right = 637.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+text = "0.0.1"
+
+[node name="Menu" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(8, 8)
+script = ExtResource("9")
+Cols = 6
+Rows = 1
+Gap = Vector2(96, 0)
+Data = PackedStringArray("Items", "Stats", "Journal", "Config", "Go to Menu", "Quit Game")
+
+[node name="Soul-in" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = 1
+use_parent_material = true
+position = Vector2(11, 11)
+texture = ExtResource("1")
+centered = false
