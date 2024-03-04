@@ -34,11 +34,15 @@ public partial class Pause : Node2D
 		main = GetNode<Main>("/root/Main");
 		soulIn = GetNode<Sprite2D>("Soul-in");
 
-		//items = GD.Load<PackedScene>("res://Assets/Scenes/SingleScenes/Windows/Items.tscn").Instance<Node2D>();
-		//stats = GD.Load<PackedScene>("res://Assets/Scenes/SingleScenes/Windows/Stats.tscn").Instance<Stats>();
+		items = GD.Load<PackedScene>("res://Assets/Scenes/SingleScenes/Windows/Items.tscn").Instantiate<Node2D>();
+		stats = GD.Load<PackedScene>("res://Assets/Scenes/SingleScenes/Windows/Stats.tscn").Instantiate<Stats>();
+		// journal = GD.Load<PackedScene>("res://Assets/Scenes/SingleScenes/Windows/Journal.tscn").Instantiate<Node2D>();
+		// config = GD.Load<PackedScene>("res://Assets/Scenes/SingleScenes/Windows/Config.tscn").Instantiate<Node2D>();
 
-		//AddChild(GD.Load<PackedScene>("res://Assets/Scenes/SingleScenes/Windows/Journal.tscn").Instance<Node2D>());
-		//AddChild(GD.Load<PackedScene>("res://Assets/Scenes/SingleScenes/Windows/Config.tscn").Instance<Node2D>());
+		AddChild(items);
+		AddChild(stats);
+		// AddChild(journal);
+		// AddChild(config);
 
 		pauseMenu = GetNode<List>("Menu");
 		posnode = pauseMenu.GetNode<Marker2D>("pos-0-0");

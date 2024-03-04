@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://qg5rsv1f5qis"]
+
+[ext_resource type="PackedScene" uid="uid://47u3jw2e1y5h" path="res://Assets/Scenes/SingleScenes/SoulPlayer.tscn" id="1"]
+[ext_resource type="Script" path="res://Assets/Scenes/Screens/Main.cs" id="1_c0fds"]
+[ext_resource type="PackedScene" uid="uid://cwpmqtlmm6kwn" path="res://Assets/Scenes/Attacks/BoneCircle.tscn" id="2"]
+[ext_resource type="FontFile" uid="uid://d7nejet3j3ri" path="res://Assets/Resources/8bitOperatorPlus-Bold.ttf" id="2_j0np3"]
+[ext_resource type="PackedScene" path="res://MyCamera2D.tscn" id="3"]
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(16, 376)
+
+[sub_resource type="RectangleShape2D" id="4"]
+size = Vector2(672, 16)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_c0fds")
+
+[node name="HP_bg" type="ColorRect" parent="."]
+offset_right = 100.0
+offset_bottom = 8.0
+scale = Vector2(6.4, 1)
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="HP" type="ColorRect" parent="."]
+offset_right = 100.0
+offset_bottom = 8.0
+scale = Vector2(6.4, 1)
+color = Color(1, 1, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="HP_score" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 30.0
+pivot_offset = Vector2(24, 8)
+theme_override_fonts/font = ExtResource("2_j0np3")
+text = "100 / 100"
+metadata/_edit_use_anchors_ = true
+
+[node name="TP_bg" type="ColorRect" parent="."]
+offset_top = 352.0
+offset_right = 100.0
+offset_bottom = 360.0
+scale = Vector2(6.4, 1)
+color = Color(0, 0, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TP" type="ColorRect" parent="."]
+offset_top = 352.0
+offset_right = 100.0
+offset_bottom = 360.0
+scale = Vector2(6.4, 1)
+color = Color(0, 0.498039, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TP_score" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 320.0
+offset_right = 36.0
+offset_bottom = 347.0
+pivot_offset = Vector2(24, 8)
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="BoneCircle" parent="." instance=ExtResource("2")]
+position = Vector2(320, 180)
+n = 8
+BoneLength = 50
+
+[node name="SoulPlayer" parent="." instance=ExtResource("1")]
+position = Vector2(320, 180)
+ColInd = 2
+
+[node name="camera" parent="." instance=ExtResource("3")]
+position = Vector2(320, 180)
+
+[node name="Box" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="left" type="CollisionShape2D" parent="Box"]
+position = Vector2(-8, 180)
+shape = SubResource("3")
+
+[node name="right" type="CollisionShape2D" parent="Box"]
+position = Vector2(648, 180)
+shape = SubResource("3")
+
+[node name="up" type="CollisionShape2D" parent="Box"]
+position = Vector2(320, 0)
+shape = SubResource("4")
+
+[node name="down" type="CollisionShape2D" parent="Box"]
+position = Vector2(320, 360)
+shape = SubResource("4")

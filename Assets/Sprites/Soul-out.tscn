@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://cnoybexcss2ap"]
 
-[ext_resource path="res://Assets/Resources/ShaderMaterial/CutColor.tres" type="Material" id=1]
+[ext_resource type="Shader" path="res://Assets/Resources/Shaders/CutColor.gdshader" id="1_jakc4"]
+[ext_resource type="Texture2D" uid="uid://4m0lnpf653c8" path="res://Assets/Sprites/soul-out.png" id="2_dhmq2"]
 
-[sub_resource type="CompressedTexture2D" id=1]
-load_path = "res://.import/soul-out.png-fe9fdaefacc875063c6cb47a97ad92a8.stex"
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywfky"]
+shader = ExtResource("1_jakc4")
 
 [node name="Soul-out" type="Sprite2D"]
-modulate = Color( 1, 0, 0, 1 )
-material = ExtResource( 1 )
+modulate = Color(1, 0, 0, 1)
 z_index = 1
-texture = SubResource( 1 )
+material = SubResource("ShaderMaterial_ywfky")
+texture = ExtResource("2_dhmq2")
 centered = false

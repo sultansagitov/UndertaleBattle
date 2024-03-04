@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ulpfpjmdfrv3"]
+[gd_scene load_steps=5 format=3 uid="uid://ulpfpjmdfrv3"]
 
 [ext_resource type="Texture2D" uid="uid://clh75jmbywsb1" path="res://Assets/Sprites/soul-in.png" id="1"]
-[ext_resource type="Material" uid="uid://bujqgrqtlt1cr" path="res://Assets/Resources/ShaderMaterial/CutColor.tres" id="3"]
-[ext_resource type="FontFile" path="res://Assets/Resources/BitmapFonts/minipix.res" id="6"]
+[ext_resource type="Material" uid="uid://bujqgrqtlt1cr" path="res://Assets/Resources/Shaders/CutColor.tres" id="3"]
 [ext_resource type="Script" path="res://Assets/Scenes/SingleScenes/Windows/Pause.cs" id="7"]
 [ext_resource type="Script" path="res://Assets/Scenes/Scripts/List.cs" id="9"]
 
@@ -21,7 +20,6 @@ offset_top = 1.0
 offset_right = 637.0
 offset_bottom = 17.0
 theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("6")
 text = "0.0.1"
 
 [node name="Menu" type="Node2D" parent="."]

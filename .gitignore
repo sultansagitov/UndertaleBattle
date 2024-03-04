@@ -14,7 +14,10 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
-.vs
-.vscode
-Build
+# Editors
+.vs/
+.vscode/
+
+# build     
+Build/
 .fake

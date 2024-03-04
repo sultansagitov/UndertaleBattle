@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://clfrl1ganruem"]
+[gd_scene load_steps=6 format=3 uid="uid://clfrl1ganruem"]
 
+[ext_resource type="Shader" path="res://Assets/Resources/Shaders/CutColor.gdshader" id="1_mj6fq"]
 [ext_resource type="TileSet" path="res://Assets/Resources/TileSets/WindowBorder.tres" id="2"]
 [ext_resource type="Script" path="res://Assets/Scenes/Scripts/List.cs" id="3"]
-[ext_resource type="Material" uid="uid://bujqgrqtlt1cr" path="res://Assets/Resources/ShaderMaterial/CutColor.tres" id="4"]
 [ext_resource type="FontFile" path="res://Assets/Resources/BitmapFonts/8bitOperatorPlus-Bold.res" id="5"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6q2ah"]
+shader = ExtResource("1_mj6fq")
+
 [node name="Items" type="Node2D"]
-material = ExtResource("4")
+material = SubResource("ShaderMaterial_6q2ah")
 
 [node name="WindowBorders" type="TileMap" parent="."]
 use_parent_material = true
