@@ -1,6 +1,6 @@
+using System;
 using Godot;
 using Godot.Collections;
-using System;
 
 public partial class Stats : Node2D
 {
@@ -21,16 +21,15 @@ public partial class Stats : Node2D
         main = GetNode<Main>("/root/Main");
         characters = GetNode<List>("Characters");
 
-        for(int Index = 0; Index < main.location.Characters.Length; Index++)
+        var Characters = new string[3] { "Melody", "Ron", "Lorein" };////////////////////////////////////
+
+        for (int Index = 0; Index < Characters.Length; Index++)
         {
-            string Name = main.location.Characters[Index];
+            string Name = Characters[Index];
             characters.Data[Index] = Name;
             //characters.Colors[Index] = new Color(CharactersList[Name]);
         }
     }
 
-    public override void _PhysicsProcess(double Delta)
-    {
-        
-    }
+    public override void _PhysicsProcess(double Delta) { }
 }

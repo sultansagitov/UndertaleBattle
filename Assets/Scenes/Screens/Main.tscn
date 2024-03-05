@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://qg5rsv1f5qis"]
+[gd_scene load_steps=9 format=3 uid="uid://qg5rsv1f5qis"]
 
 [ext_resource type="PackedScene" uid="uid://47u3jw2e1y5h" path="res://Assets/Scenes/SingleScenes/SoulPlayer.tscn" id="1"]
 [ext_resource type="Script" path="res://Assets/Scenes/Screens/Main.cs" id="1_c0fds"]
 [ext_resource type="PackedScene" uid="uid://cwpmqtlmm6kwn" path="res://Assets/Scenes/Attacks/BoneCircle.tscn" id="2"]
 [ext_resource type="FontFile" uid="uid://d7nejet3j3ri" path="res://Assets/Resources/8bitOperatorPlus-Bold.ttf" id="2_j0np3"]
-[ext_resource type="PackedScene" path="res://MyCamera2D.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dbt00eb4e0mmo" path="res://MyCamera2D.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://ulpfpjmdfrv3" path="res://Assets/Scenes/SingleScenes/Windows/Pause.tscn" id="6_pl2jm"]
 
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(16, 376)
@@ -94,3 +95,6 @@ shape = SubResource("4")
 [node name="down" type="CollisionShape2D" parent="Box"]
 position = Vector2(320, 360)
 shape = SubResource("4")
+
+[node name="pause" parent="." instance=ExtResource("6_pl2jm")]
+visible = false

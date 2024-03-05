@@ -11,12 +11,14 @@ public partial class Main : Node2D
     public ColorRect tp_bar;
     public Label tp_score;
     public MyCamera2D camera;
+    public Pause pause;
 
     public override void _Ready()
     {
         player = GetNode<SoulPlayer>("SoulPlayer");
         player.main = this;
         camera = GetNode<MyCamera2D>("camera");
+        pause = GetNode<Pause>("pause");
 
         hp_bg = GetNode<ColorRect>("HP_bg");
         hp_bar = GetNode<ColorRect>("HP");
@@ -41,8 +43,10 @@ public partial class Main : Node2D
         tp_score.Text = $"{player.TP}";
         //TP_score.Position = new((int)Math.Max(16, Math.Min(604, player.TP * 6.4 - 10)), TP_score.Position.Y);
 
-        if (Input.IsActionJustPressed("ui_cancel")) {
-            
+        if (Input.IsActionJustPressed("ui_cancel"))
+        {
+            GD.Print("qw"); 
+            pause.Visible = !pause.Visible;
         }
     }
 }
