@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bfe3vfib80hb2"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Screens/GameOver.cs" id="1_vtb0s"]
-[ext_resource type="PackedScene" path="res://MyCamera2D.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dbt00eb4e0mmo" path="res://MyCamera2D.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://b4m4jxhlusray" path="res://Assets/Sprites/gameover.png" id="2_1bfa3"]
 
 [sub_resource type="Shader" id="1"]

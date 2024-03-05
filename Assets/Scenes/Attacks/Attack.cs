@@ -6,6 +6,9 @@ public partial class Attack : Area2D
     [Export]
     public int ColInd = 0;
 
+    [Export]
+    public int Damage = 5;
+
     public Main main;
 
     public bool SoulIn = false;
@@ -16,8 +19,7 @@ public partial class Attack : Area2D
 
     public override void _Ready()
     {
-        player = GetNode<SoulPlayer>("/root/Main/SoulPlayer");
-        collisionShape = GetNode<CollisionShape2D>("Collision");
+        player = GetNode<SoulPlayer>("/root/Main/SoulPlayer");        
 
         rnd = new();
 
@@ -31,7 +33,7 @@ public partial class Attack : Area2D
             5 => G.LIGHTBLUE,
             6 => G.BLUE,
             7 => G.PURPLE,
-            _ => G.WHITE,
+            _ => G.ERROR,
         };
     }
 
@@ -42,36 +44,39 @@ public partial class Attack : Area2D
             switch (ColInd)
             {
                 case 0:
-                    player.Attack(5);
+                    player.Attack(Damage);
                     break;
                 case 1:
-                    player.AttackToMax(5);
+                    player.AttackToMax(Damage);
                     break;
                 case 2:
                     if (player.Velocity == Vector2.Zero)
-                        player.Attack(5);
+                        player.Attack(Damage);
                     break;
                 case 3:
-                    player.Attack(5, this);
+                    player.Attack(Damage, this);
                     break;
                 case 4:
-                    player.Heal(5, this);
+                    player.Heal(Damage, this);
                     break;
                 case 5:
                     if (player.Velocity != Vector2.Zero)
-                        player.Attack(5);
+                        player.Attack(Damage);
                     break;
+                case 6:
+                    player.IncTP(Damage);
+                    break;   
                 case 7:
-                    int num = rnd.Next(2);
+                    int num = rnd.Next(3);
                     switch (num) {
                         case 0:
-                            player.Attack(5);
+                            player.Attack(Damage);
                             break; 
                         case 1:
-                            player.AttackToMax(5);
+                            player.AttackToMax(Damage);
                             break; 
                         case 2:
-                            player.Heal(5);
+                            player.Heal(Damage);
                             break; 
                     }
                     break;
@@ -79,15 +84,15 @@ public partial class Attack : Area2D
         }
     }
 
-    private void OnBoneBodyEntered(Node body)
+    public void _on_body_entered(Node2D node2d)
     {
-        if (body is SoulPlayer)
+        if (node2d is SoulPlayer)
             SoulIn = true;
     }
 
-    private void OnBoneBodyExited(Node body)
+    private void _on_body_exited(Node2D node2d)
     {
-        if (body is SoulPlayer)
+        if (node2d is SoulPlayer)
             SoulIn = false;
     }
 }

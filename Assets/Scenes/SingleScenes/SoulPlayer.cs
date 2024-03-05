@@ -18,7 +18,7 @@ public partial class SoulPlayer : CharacterBody2D
         get { return _tp; }
         set
         {
-            _tp = value;
+            _tp = Math.Min(100, value);
             main.tp_bar.Size = new(value, main.tp_bar.Size.Y);
             main.tp_score.Text = $"{_tp}";
         }
@@ -117,6 +117,10 @@ public partial class SoulPlayer : CharacterBody2D
             HP += health;
             bone.GetParent().RemoveChild(bone);
         }
+    }
+
+    public void IncTP(int tp) {
+        TP += tp;
     }
 
     public void OnTimerTimeout()
