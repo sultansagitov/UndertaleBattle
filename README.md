@@ -5,8 +5,6 @@ This is an Undertale fan game project focusing on turn-based battles, developed 
 
 ## Features
 - Turn-based battles with unique mechanics
-- Customizable characters and abilities
-- Engaging storyline in the spirit of Undertale
 - Pixel art graphics and animations
 
 ## Installation
