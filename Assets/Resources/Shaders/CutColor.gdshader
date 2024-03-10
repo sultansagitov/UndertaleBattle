@@ -1,9 +1,10 @@
+
 shader_type canvas_item;
+const vec3 c = vec3(224.0 / 255.0, 160.0 / 255.0, 64.0 / 255.0);
 
 void fragment() {
 	vec4 col = texture(TEXTURE, UV);
 	vec3 sort_col = vec3(0, 0, 0);
-	vec3 c = vec3(224.0 / 255.0, 160.0 / 255.0, 64.0 / 255.0);
 	
 	sort_col.r = max(max(col.r, col.g), col.b);
 	sort_col.b = min(min(col.r, col.g), col.b);

@@ -4,7 +4,7 @@ using Godot;
 public partial class SoulPlayer : CharacterBody2D
 {
     [Export]
-    public int ColInd = 0;
+    public int ColInd = 1;
 
     public Vector2 velocity = Vector2.One;
 
@@ -119,7 +119,8 @@ public partial class SoulPlayer : CharacterBody2D
         }
     }
 
-    public void IncTP(int tp) {
+    public void IncTP(int tp)
+    {
         TP += tp;
     }
 
@@ -177,17 +178,20 @@ public partial class SoulPlayer : CharacterBody2D
         //        break;
         //}
 
-        sprite.Modulate = ColInd switch
-        {
-            0 => G.WHITE,
-            1 => G.RED,
-            2 => G.ORANGE,
-            3 => G.YELLOW,
-            4 => G.GREEN,
-            5 => G.LIGHTBLUE,
-            6 => G.BLUE,
-            7 => G.PURPLE,
-            _ => G.ERROR,
-        };
+        (sprite.Material as ShaderMaterial).SetShaderParameter(
+            "modulate",
+            ColInd switch
+            {
+                0 => G.WHITE,
+                1 => G.RED,
+                2 => G.ORANGE,
+                3 => G.YELLOW,
+                4 => G.GREEN,
+                5 => G.LIGHTBLUE,
+                6 => G.BLUE,
+                7 => G.PURPLE,
+                _ => G.ERROR,
+            }
+        );
     }
 }

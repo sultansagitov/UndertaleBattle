@@ -14,7 +14,7 @@ offset_bottom = 196.0
 text = "Play
 "
 
-[node name="MyCamera2D" parent="." instance=ExtResource("2_0tfgt")]
+[node name="camera" parent="." instance=ExtResource("2_0tfgt")]
 position = Vector2(320, 180)
 
 [connection signal="pressed" from="Play" to="." method="_OnPlayPressed"]

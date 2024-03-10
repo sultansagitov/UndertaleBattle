@@ -74,7 +74,6 @@ BoneLength = 50
 
 [node name="SoulPlayer" parent="." instance=ExtResource("4_vrjbi")]
 position = Vector2(320, 180)
-ColInd = 2
 
 [node name="camera" parent="." instance=ExtResource("5_30u5p")]
 position = Vector2(320, 180)
