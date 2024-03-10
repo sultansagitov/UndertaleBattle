@@ -1,16 +1,16 @@
 [gd_scene load_steps=7 format=3 uid="uid://ulpfpjmdfrv3"]
 
-[ext_resource type="Texture2D" uid="uid://clh75jmbywsb1" path="res://Assets/Sprites/soul-in.png" id="1"]
-[ext_resource type="Shader" path="res://Assets/Resources/Shaders/CutColor.gdshader" id="1_dmcjs"]
-[ext_resource type="FontFile" path="res://Assets/Resources/8bitOperatorPlus-Bold.ttf" id="3_hdoyu"]
+[ext_resource type="Shader" path="res://Assets/Resources/Shaders/CutColor.gdshader" id="1_oei7p"]
+[ext_resource type="FontFile" uid="uid://eu32x33p0m3m" path="res://Assets/Resources/Fonts/Abaddon Light.ttf" id="2_37ypx"]
+[ext_resource type="Script" path="res://Assets/Scenes/Scripts/List.cs" id="3_jyd3q"]
+[ext_resource type="Texture2D" uid="uid://b6phnuqt65q4x" path="res://Assets/Sprites/soul-in.png" id="4_scp2k"]
 [ext_resource type="Script" path="res://Assets/Scenes/SingleScenes/Windows/Pause.cs" id="7"]
-[ext_resource type="Script" path="res://Assets/Scenes/Scripts/List.cs" id="9"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_scqme"]
-shader = ExtResource("1_dmcjs")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8pu6"]
+shader = ExtResource("1_oei7p")
 
 [node name="Pause" type="Node2D"]
-material = SubResource("ShaderMaterial_scqme")
+material = SubResource("ShaderMaterial_o8pu6")
 script = ExtResource("7")
 
 [node name="BG" type="ColorRect" parent="."]
@@ -19,19 +19,18 @@ offset_bottom = 32.0
 color = Color(0, 0, 0, 1)
 
 [node name="version" type="Label" parent="."]
-offset_left = 557.0
-offset_top = 1.0
-offset_right = 637.0
-offset_bottom = 17.0
-theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
-theme_override_fonts/font = ExtResource("3_hdoyu")
+offset_left = 560.0
+offset_right = 640.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(0.290196, 0.290196, 0.290196, 1)
+theme_override_fonts/font = ExtResource("2_37ypx")
 text = "0.0.1"
 horizontal_alignment = 2
 
 [node name="Menu" type="Node2D" parent="."]
 use_parent_material = true
 position = Vector2(8, 8)
-script = ExtResource("9")
+script = ExtResource("3_jyd3q")
 Cols = 6
 Rows = 1
 Gap = Vector2(96, 0)
@@ -42,5 +41,5 @@ modulate = Color(1, 0, 0, 1)
 z_index = 1
 use_parent_material = true
 position = Vector2(11, 11)
-texture = ExtResource("1")
+texture = ExtResource("4_scp2k")
 centered = false

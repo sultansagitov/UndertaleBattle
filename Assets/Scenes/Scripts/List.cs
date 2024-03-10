@@ -55,7 +55,7 @@ public partial class List : Node2D
                     Position = new Vector2(13, -3),
                     Modulate = new Color("ff0000")
                 };
-                shadow.Set("custom_fonts/font", GD.Load("res://Assets/Resources/8bitOperatorPlus-Bold.ttf"));
+                shadow.Set("custom_fonts/font", GD.Load("res://Assets/Resources/Fonts/Abaddon Bold.ttf"));
 				pos.AddChild(shadow);
 
                 Label label = new ()
@@ -65,7 +65,7 @@ public partial class List : Node2D
                     //    label.Modulate = Colors[IRow + ICol * Rows];
                     Position = new Vector2(12, -4)
                 };
-                label.Set("custom_fonts/font", GD.Load("res://Assets/Resources/8bitOperatorPlus-Bold.ttf"));
+                label.Set("custom_fonts/font", GD.Load("res://Assets/Resources/Fonts/Abaddon Bold.ttf"));
 				pos.AddChild(label);
 			}
 		}

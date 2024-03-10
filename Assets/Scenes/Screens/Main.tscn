@@ -1,20 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://qg5rsv1f5qis"]
+[gd_scene load_steps=8 format=3 uid="uid://qg5rsv1f5qis"]
 
-[ext_resource type="PackedScene" uid="uid://47u3jw2e1y5h" path="res://Assets/Scenes/SingleScenes/SoulPlayer.tscn" id="1"]
-[ext_resource type="Script" path="res://Assets/Scenes/Screens/Main.cs" id="1_c0fds"]
-[ext_resource type="PackedScene" uid="uid://cwpmqtlmm6kwn" path="res://Assets/Scenes/Attacks/BoneCircle.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://c77y6di1jqcfj" path="res://MyCamera2D.tscn" id="3"]
-[ext_resource type="FontFile" uid="uid://xdv62dxor4gt" path="res://Assets/Resources/Fonts/Abaddon Bold.ttf" id="3_p8tim"]
-[ext_resource type="PackedScene" uid="uid://ulpfpjmdfrv3" path="res://Assets/Scenes/SingleScenes/Windows/Pause.tscn" id="6_pl2jm"]
+[ext_resource type="Script" path="res://Assets/Scenes/Screens/Main.cs" id="1_8bw1c"]
+[ext_resource type="FontFile" uid="uid://bvxbd18kvlu8x" path="res://Assets/Resources/Fonts/Abaddon Bold.ttf" id="2_x7e6x"]
+[ext_resource type="PackedScene" uid="uid://cwpmqtlmm6kwn" path="res://Assets/Scenes/Attacks/BoneCircle.tscn" id="3_3wxt1"]
+[ext_resource type="PackedScene" uid="uid://47u3jw2e1y5h" path="res://Assets/Scenes/SingleScenes/SoulPlayer.tscn" id="4_vrjbi"]
+[ext_resource type="PackedScene" uid="uid://c77y6di1jqcfj" path="res://Camera.tscn" id="5_30u5p"]
 
-[sub_resource type="RectangleShape2D" id="3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jabj2"]
 size = Vector2(16, 376)
 
-[sub_resource type="RectangleShape2D" id="4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqk87"]
 size = Vector2(672, 16)
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_c0fds")
+script = ExtResource("1_8bw1c")
 
 [node name="HP_bg" type="ColorRect" parent="."]
 offset_right = 100.0
@@ -36,7 +35,7 @@ offset_top = 20.0
 offset_right = 134.0
 offset_bottom = 59.0
 pivot_offset = Vector2(24, 8)
-theme_override_fonts/font = ExtResource("3_p8tim")
+theme_override_fonts/font = ExtResource("2_x7e6x")
 theme_override_font_sizes/font_size = 32
 text = "100 / 100"
 metadata/_edit_use_anchors_ = true
@@ -63,21 +62,21 @@ offset_top = 312.0
 offset_right = 34.0
 offset_bottom = 351.0
 pivot_offset = Vector2(24, 8)
-theme_override_fonts/font = ExtResource("3_p8tim")
+theme_override_fonts/font = ExtResource("2_x7e6x")
 theme_override_font_sizes/font_size = 32
 text = "0"
 metadata/_edit_use_anchors_ = true
 
-[node name="BoneCircle" parent="." instance=ExtResource("2")]
+[node name="BoneCircle" parent="." instance=ExtResource("3_3wxt1")]
 position = Vector2(320, 180)
 n = 8
 BoneLength = 50
 
-[node name="SoulPlayer" parent="." instance=ExtResource("1")]
+[node name="SoulPlayer" parent="." instance=ExtResource("4_vrjbi")]
 position = Vector2(320, 180)
 ColInd = 2
 
-[node name="camera" parent="." instance=ExtResource("3")]
+[node name="camera" parent="." instance=ExtResource("5_30u5p")]
 position = Vector2(320, 180)
 
 [node name="Box" type="StaticBody2D" parent="."]
@@ -85,19 +84,16 @@ visible = false
 
 [node name="left" type="CollisionShape2D" parent="Box"]
 position = Vector2(-8, 180)
-shape = SubResource("3")
+shape = SubResource("RectangleShape2D_jabj2")
 
 [node name="right" type="CollisionShape2D" parent="Box"]
 position = Vector2(648, 180)
-shape = SubResource("3")
+shape = SubResource("RectangleShape2D_jabj2")
 
 [node name="up" type="CollisionShape2D" parent="Box"]
 position = Vector2(320, 0)
-shape = SubResource("4")
+shape = SubResource("RectangleShape2D_cqk87")
 
 [node name="down" type="CollisionShape2D" parent="Box"]
 position = Vector2(320, 360)
-shape = SubResource("4")
-
-[node name="pause" parent="." instance=ExtResource("6_pl2jm")]
-visible = false
+shape = SubResource("RectangleShape2D_cqk87")

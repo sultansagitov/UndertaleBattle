@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxfwkn0bqj81l"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Attacks/Bone.cs" id="1_jhi4o"]
-[ext_resource type="Texture2D" uid="uid://dgfj7q2nqfv2t" path="res://Assets/Sprites/Attacks/bone_piece.png" id="2_5y4aw"]
+[ext_resource type="Texture2D" uid="uid://65g33i8e41hy" path="res://Assets/Sprites/Attacks/bone_piece.png" id="2_5y4aw"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6, 42)
@@ -27,7 +27,6 @@ centered = false
 flip_v = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

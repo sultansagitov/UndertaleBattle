@@ -1,15 +1,15 @@
-using System;
 using Godot;
+using System;
 
-public partial class MyCamera2D : Camera2D
+public partial class Camera : Camera2D
 {
     private double q = 0;
 
-    public override void _PhysicsProcess(double delta)
-    {
+	public override void _Process(double delta)
+	{
         var zoom = GetWindow().Size / new Vector2(640, 360);
-        var num = ((int)Math.Round(Mathf.Min(zoom.X, zoom.Y)*10))/10;
-		Zoom = new(num, num);
+        var num = ((int)Math.Round(Mathf.Min(zoom.X, zoom.Y) * 10)) / 10;
+        Zoom = new(num, num);
 
         if (Input.IsActionJustPressed("fullscreen"))
         {
@@ -36,5 +36,5 @@ public partial class MyCamera2D : Camera2D
         {
             q = Math.Max(0, q - delta * 5);
         }
-    }
+	}
 }

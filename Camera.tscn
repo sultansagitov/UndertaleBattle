@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c77y6di1jqcfj"]
+
+[ext_resource type="Script" path="res://Camera.cs" id="1_dvj5y"]
+[ext_resource type="FontFile" uid="uid://bvxbd18kvlu8x" path="res://Assets/Resources/Fonts/Abaddon Bold.ttf" id="2_6dn7h"]
+
+[node name="Camera" type="Camera2D"]
+script = ExtResource("1_dvj5y")
+
+[node name="quitting" type="Label" parent="."]
+offset_left = -32.0
+offset_top = 152.0
+offset_right = 37.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("2_6dn7h")
+text = "Quit Game"
