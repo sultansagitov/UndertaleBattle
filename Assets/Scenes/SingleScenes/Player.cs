@@ -22,9 +22,9 @@ public partial class Player : CharacterBody2D
     private void Walk(Vector2 Facing)
     {
         if (Input.IsActionPressed("boost"))
-            Velocity = (Facing * BoostSpeed);
+            Velocity = Facing * BoostSpeed;
         else
-            Velocity = (Facing * NormalSpeed);
+            Velocity = Facing * NormalSpeed;
 
         MoveAndSlide();
 

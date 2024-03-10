@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://Assets/Resources/Shaders/CutColor.gdshader" id="1_mj6fq"]
 [ext_resource type="TileSet" path="res://Assets/Resources/TileSets/WindowBorder.tres" id="2"]
 [ext_resource type="Script" path="res://Assets/Scenes/Scripts/List.cs" id="3"]
-[ext_resource type="FontFile" path="res://Assets/Resources/BitmapFonts/8bitOperatorPlus-Bold.res" id="5"]
+[ext_resource type="FontFile" uid="uid://xdv62dxor4gt" path="res://Assets/Resources/Fonts/Abaddon Bold.ttf" id="4_xo036"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6q2ah"]
 shader = ExtResource("1_mj6fq")
@@ -39,5 +39,5 @@ offset_left = 557.0
 offset_top = 303.0
 offset_right = 606.0
 offset_bottom = 317.0
-theme_override_fonts/font = ExtResource("5")
+theme_override_fonts/font = ExtResource("4_xo036")
 text = "26 / 42"

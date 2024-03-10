@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg8bys5pr00a4"]
+[gd_scene load_steps=8 format=3 uid="uid://cg8bys5pr00a4"]
 
 [ext_resource type="Shader" path="res://Assets/Resources/Shaders/CutColor.gdshader" id="1_g3xpr"]
 [ext_resource type="TileSet" path="res://Assets/Resources/TileSets/WindowBorder.tres" id="2"]
-[ext_resource type="FontFile" path="res://Assets/Resources/BitmapFonts/8bitOperatorPlus-Bold.res" id="3"]
-[ext_resource type="FontFile" path="res://Assets/Resources/BitmapFonts/minipix.res" id="5"]
-[ext_resource type="FontFile" uid="uid://d7nejet3j3ri" path="res://Assets/Resources/8bitOperatorPlus-Bold.ttf" id="5_1mrhi"]
+[ext_resource type="FontFile" uid="uid://xdv62dxor4gt" path="res://Assets/Resources/Fonts/Abaddon Bold.ttf" id="3"]
+[ext_resource type="FontFile" uid="uid://bq1vltl35osjj" path="res://Assets/Resources/Fonts/Abaddon Light.ttf" id="5"]
 [ext_resource type="Script" path="res://Assets/Scenes/Scripts/List.cs" id="6"]
 [ext_resource type="Script" path="res://Assets/Scenes/SingleScenes/Windows/Stats.cs" id="7"]
 
@@ -14,6 +13,10 @@ shader = ExtResource("1_g3xpr")
 [node name="Stats" type="Node2D"]
 material = SubResource("ShaderMaterial_npoff")
 script = ExtResource("7")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 32.0
 
 [node name="WindowBorders" type="TileMap" parent="."]
 use_parent_material = true
@@ -27,15 +30,16 @@ offset_top = 63.0
 offset_right = 230.0
 offset_bottom = 364.0
 theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 16
 text = "
 90lv  23/99
 AT: 100  DF: 100
-Weapon: mmmmmmmmmmmmmmmmmm
+Weapon: mmmmmmmmmmmm
 Armor: Infinity Thing
 
 8lv  23/99
 AT: 100  DF: 100
-Weapon: mmmmmmmmmmmmmmmmmm
+Weapon: mmmmmmmmmmmm
 Armor: Infinity Thing
 
 16lv  23/99
@@ -51,7 +55,7 @@ offset_left = 243.0
 offset_top = 79.0
 offset_right = 608.0
 offset_bottom = 365.0
-theme_override_fonts/font = ExtResource("5_1mrhi")
+theme_override_fonts/font = ExtResource("3")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla"
 autowrap_mode = 3
 

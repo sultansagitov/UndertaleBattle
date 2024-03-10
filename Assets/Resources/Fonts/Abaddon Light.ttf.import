@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d7nejet3j3ri"
-path="res://.godot/imported/8bitOperatorPlus-Bold.ttf-f8f6171a8e8758c43b433f6700eed748.fontdata"
+uid="uid://bq1vltl35osjj"
+path="res://.godot/imported/Abaddon Light.ttf-f2e59a86e0958bc4ea08c50a7ee2ff60.fontdata"
 
 [deps]
 
-source_file="res://Assets/Resources/8bitOperatorPlus-Bold.ttf"
-dest_files=["res://.godot/imported/8bitOperatorPlus-Bold.ttf-f8f6171a8e8758c43b433f6700eed748.fontdata"]
+source_file="res://Assets/Resources/Fonts/Abaddon Light.ttf"
+dest_files=["res://.godot/imported/Abaddon Light.ttf-f2e59a86e0958bc4ea08c50a7ee2ff60.fontdata"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://clh75jmbywsb1" path="res://Assets/Sprites/soul-in.png" id="1"]
 [ext_resource type="Shader" path="res://Assets/Resources/Shaders/CutColor.gdshader" id="1_dmcjs"]
-[ext_resource type="FontFile" uid="uid://d7nejet3j3ri" path="res://Assets/Resources/8bitOperatorPlus-Bold.ttf" id="3_hdoyu"]
+[ext_resource type="FontFile" path="res://Assets/Resources/8bitOperatorPlus-Bold.ttf" id="3_hdoyu"]
 [ext_resource type="Script" path="res://Assets/Scenes/SingleScenes/Windows/Pause.cs" id="7"]
 [ext_resource type="Script" path="res://Assets/Scenes/Scripts/List.cs" id="9"]
 

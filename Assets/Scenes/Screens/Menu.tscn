@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1q7tvb6asg7j"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Screens/Menu.cs" id="1_lyvyh"]
-[ext_resource type="PackedScene" path="res://MyCamera2D.tscn" id="2_0tfgt"]
+[ext_resource type="PackedScene" uid="uid://c77y6di1jqcfj" path="res://MyCamera2D.tscn" id="2_0tfgt"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lyvyh")
