@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxfwkn0bqj81l"]
+[gd_scene load_steps=6 format=3 uid="uid://dxfwkn0bqj81l"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Attacks/Bone.cs" id="1_jhi4o"]
 [ext_resource type="Texture2D" uid="uid://65g33i8e41hy" path="res://Assets/Sprites/Attacks/bone_piece.png" id="2_5y4aw"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6, 42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sq0wd"]
+radius = 50.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr8m8"]
+size = Vector2(100, 42)
 
 [node name="Bone" type="Area2D"]
 script = ExtResource("1_jhi4o")
@@ -29,5 +35,20 @@ flip_v = true
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
 
+[node name="tparea" type="Area2D" parent="."]
+
+[node name="collision1" type="CollisionShape2D" parent="tparea"]
+position = Vector2(0, -21)
+shape = SubResource("CircleShape2D_sq0wd")
+
+[node name="collision2" type="CollisionShape2D" parent="tparea"]
+position = Vector2(0, 21)
+shape = SubResource("CircleShape2D_sq0wd")
+
+[node name="collision3" type="CollisionShape2D" parent="tparea"]
+shape = SubResource("RectangleShape2D_hr8m8")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="tparea" to="." method="OnTP_BodyEntered"]
+[connection signal="body_exited" from="tparea" to="." method="OnTP_BodyExited"]

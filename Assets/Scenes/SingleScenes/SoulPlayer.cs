@@ -8,9 +8,7 @@ public partial class SoulPlayer : CharacterBody2D
 
     public Vector2 velocity = Vector2.One;
 
-    public float InitialSpeed = 100;
     public float Speed = 100;
-    public float MAX_SPEED = 200;
 
     private int _tp = 0;
     public int TP
@@ -29,7 +27,7 @@ public partial class SoulPlayer : CharacterBody2D
         get { return _hp; }
         set
         {
-            _hp = value;
+            _hp = Math.Min(MaxHP, value);
             main.hp_bar.Size = new(value, main.hp_bar.Size.Y);
             main.hp_score.Text = $"{_hp} / {_maxhp}";
         }
@@ -40,7 +38,8 @@ public partial class SoulPlayer : CharacterBody2D
         get { return _maxhp; }
         set
         {
-            _maxhp = value;
+            _maxhp = Math.Min(100, value);
+            HP = Math.Min(HP, MaxHP);
             main.hp_bg.Size = new(value, main.hp_bg.Size.Y);
             main.hp_score.Text = $"{_hp} / {_maxhp}";
         }
@@ -57,17 +56,12 @@ public partial class SoulPlayer : CharacterBody2D
         }
     }
 
+    // Nodes
     public Main main;
     public Sprite2D sprite;
-    public Timer timer;
-
-    public override void _Ready()
-    {
-        main = GetParent<Main>();
-        timer = GetNode<Timer>("timer");
-        sprite = GetNode<Sprite2D>("Soul");
-        sprite.Position = Position - new Vector2((int)Position.X, (int)Position.Y);
-    }
+    public Sprite2D sprite_tpcircle;
+    public Timer imm_timer;
+    public Timer tp_timer;
 
     public void Attack(int damage)
     {
@@ -75,7 +69,7 @@ public partial class SoulPlayer : CharacterBody2D
         {
             HP -= damage;
             Immortally = true;
-            timer.Start();
+            imm_timer.Start();
         }
     }
 
@@ -85,11 +79,11 @@ public partial class SoulPlayer : CharacterBody2D
         {
             HP -= damage;
             Immortally = true;
-            Speed = InitialSpeed;
-            timer.Start();
+            imm_timer.Start();
             bone.GetParent().RemoveChild(bone);
         }
     }
+
 
     public void AttackToMax(int damage)
     {
@@ -97,69 +91,73 @@ public partial class SoulPlayer : CharacterBody2D
         {
             MaxHP -= damage;
             Immortally = true;
-            Speed = InitialSpeed;
-            timer.Start();
+            imm_timer.Start();
         }
+    }
+
+    public void OnImmtimerTimeout()
+    {
+        Immortally = false;
     }
 
     public void Heal(int health)
     {
-        if (HP < MaxHP)
-        {
-            HP += health;
-        }
+        HP += health;
     }
 
     public void Heal(int health, Attack bone)
     {
         if (HP < MaxHP)
-        {
-            HP += health;
             bone.GetParent().RemoveChild(bone);
-        }
+
+        HP += health;
     }
 
     public void IncTP(int tp)
     {
-        TP += tp;
+        if ((TP += tp) < 100)
+        {
+            sprite_tpcircle.Visible = true;
+            tp_timer.Start();
+        }
     }
 
-    public void OnTimerTimeout()
+    public void OnTPtimerTimeout()
     {
-        Immortally = false;
+        sprite_tpcircle.Visible = false;
+    }
+
+    public override void _Ready()
+    {
+        main = GetParent<Main>();
+        imm_timer = GetNode<Timer>("imm-timer");
+        tp_timer = GetNode<Timer>("tp-timer");
+        sprite = GetNode<Sprite2D>("Soul");
+        sprite_tpcircle = GetNode<Sprite2D>("CircleTp");
+        sprite.Position = Position - new Vector2((int)Position.X, (int)Position.Y);
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        TP = Math.Min(TP, 100);
-        MaxHP = Math.Min(MaxHP, 100);
-        HP = Math.Min(HP, MaxHP);
-
         var mouse = GetViewport().GetMousePosition();
-
-        Velocity =
-            new Vector2(
-                Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"),
-                Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up")
-            ).Normalized() * Speed;
 
         if (Input.IsActionPressed("mousedown"))
         {
             var direction = (mouse / main.camera.Zoom) - Position;
-            if (direction.Length() > 1f)
-                Velocity += direction.Normalized() * Speed;
+            // if (direction.Length() > 4f)
+            Velocity = direction.Normalized() * Speed;
+        }
+        else
+        {
+            Velocity =
+                new Vector2(
+                    Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"),
+                    Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up")
+                ).Normalized() * Speed;
         }
 
         MoveAndSlide();
 
-        if (Velocity == Vector2.Zero)
-        {
-            Speed = InitialSpeed;
-        }
-        else
-        {
-            Speed = MathF.Min(Speed * 1.01f, MAX_SPEED);
-        }
         //switch (ColInd)
         //{
         //    case 1:

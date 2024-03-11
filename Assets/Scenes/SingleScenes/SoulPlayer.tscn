@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://47u3jw2e1y5h"]
+[gd_scene load_steps=7 format=3 uid="uid://47u3jw2e1y5h"]
 
 [ext_resource type="Shader" path="res://Assets/Resources/Shaders/SoulPlayer.gdshader" id="1_ncr4l"]
 [ext_resource type="Script" path="res://Assets/Scenes/SingleScenes/SoulPlayer.cs" id="1_txend"]
 [ext_resource type="Texture2D" uid="uid://bi4rlda873kap" path="res://Assets/Sprites/soul.png" id="2_qbmd8"]
+[ext_resource type="Texture2D" uid="uid://dfqvr550nx445" path="res://Assets/Sprites/circle_tp.png" id="4_rf3y5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2h4ib"]
 shader = ExtResource("1_ncr4l")
@@ -19,10 +20,18 @@ script = ExtResource("1_txend")
 material = SubResource("ShaderMaterial_2h4ib")
 texture = ExtResource("2_qbmd8")
 
+[node name="CircleTp" type="Sprite2D" parent="."]
+texture = ExtResource("4_rf3y5")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_2hxs5")
 
-[node name="timer" type="Timer" parent="."]
+[node name="imm-timer" type="Timer" parent="."]
 process_callback = 0
+
+[node name="tp-timer" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="timeout" from="imm-timer" to="." method="OnImmtimerTimeout"]
+[connection signal="timeout" from="tp-timer" to="." method="OnTPtimerTimeout"]

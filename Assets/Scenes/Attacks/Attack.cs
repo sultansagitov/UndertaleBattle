@@ -13,13 +13,13 @@ public partial class Attack : Area2D
 
     public bool SoulIn = false;
     public SoulPlayer player;
-    public CollisionShape2D collisionShape;       
+    public CollisionShape2D collisionShape;
 
     public Random rnd;
 
     public override void _Ready()
     {
-        player = GetNode<SoulPlayer>("/root/Main/SoulPlayer");        
+        player = GetNode<SoulPlayer>("/root/Main/SoulPlayer");
 
         rnd = new();
 
@@ -65,19 +65,20 @@ public partial class Attack : Area2D
                     break;
                 case 6:
                     player.IncTP(Damage);
-                    break;   
+                    break;
                 case 7:
                     int num = rnd.Next(3);
-                    switch (num) {
+                    switch (num)
+                    {
                         case 0:
                             player.Attack(Damage);
-                            break; 
+                            break;
                         case 1:
                             player.AttackToMax(Damage);
-                            break; 
+                            break;
                         case 2:
                             player.Heal(Damage);
-                            break; 
+                            break;
                     }
                     break;
             }
