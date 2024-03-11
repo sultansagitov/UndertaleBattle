@@ -137,17 +137,20 @@ public partial class SoulPlayer : CharacterBody2D
 
         var mouse = GetViewport().GetMousePosition();
 
-        Velocity =
-            new Vector2(
+        if (Input.IsActionPressed("mousedown"))
+        {
+            // Move player by mouse
+            var direction = (mouse / main.camera.Zoom) - Position;
+            if (direction.Length() > 1f)
+                Velocity = direction.Normalized() * Speed;
+        }
+        else
+        {
+            // Move player by keyboard or controller
+            Velocity = new Vector2(
                 Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"),
                 Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up")
             ).Normalized() * Speed;
-
-        if (Input.IsActionPressed("mousedown"))
-        {
-            var direction = (mouse / main.camera.Zoom) - Position;
-            if (direction.Length() > 1f)
-                Velocity += direction.Normalized() * Speed;
         }
 
         MoveAndSlide();
