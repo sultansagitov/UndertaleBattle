@@ -29,5 +29,5 @@ This is an Undertale fan game project focusing on turn-based battles, developed 
 
 ## Used items
 
-- Godot 4.1.3.stable.mono
+- Godot 4.2.1.stable.mono
 - [Abaddon font](https://caffinate.itch.io/abaddon)
