@@ -24,7 +24,6 @@ This is an Undertale fan game project focusing on turn-based battles, developed 
 ## Usage
 
 - Navigate through battles using arrow keys or WASD.
-- Use abilities, and progress through the story.
 - Customize characters and abilities in the game's menu.
 
 ## Used items
